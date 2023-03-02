@@ -19,7 +19,7 @@ The solution involves configuring and submitting training runs using the ScriptR
 The UCI Bank Marketing dataset was used in this project to determine whether clients would subscribe to a bank term deposit based on their responses in a direct marketing campaign. The dataset contains binary responses of 'yes' or 'no'. This project is a binary classification problem, and we seek to predict whether a client will subscribe to a term deposit. The data used in this study is available under this [link](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
 The best performing model was the **Voting Ensemble** model by the AutoML pipeline with a 91.67% accuracy. However, the other models tested vy the pipeline didn't have a poor accuracy at all. A list of trained model by AzureML pipeline is given below:
-![](docs/AutoML_Results.png)
+![](./docs/AzureML_Results.png)
 
 ## Scikit-learn Pipeline
 The architecture of the pipeline comprises of various components, including a python training script named "train.py," a tabular dataset obtained from UCI ML Repository, and a Scikit-learn Logistic Regression Algorithm integrated with the Azure HyperDrive. The pipeline incorporates a hyperparameter tuning engine to generate a HyperDrive classifier. A Jupyter Notebook hosted on a compute instance was used to manage the training run. The logical structure of the pipeline is illustrated in the diagram below (Image credit: Udacity MLEMA Nanodegree).
