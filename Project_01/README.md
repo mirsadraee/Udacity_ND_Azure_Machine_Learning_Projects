@@ -104,3 +104,5 @@ In figure below the metrics for the trained model is given:
 1. [AutoMLConfig Class](https://learn.microsoft.com/en-us/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 
 2. [Udacity AZMLND Starter Files](https://github.com/udacity/nd00333_AZMLND_Optimizing_a_Pipeline_in_Azure-Starter_Files)
 3. [Compute Target Setup](https://azure.github.io/azureml-cheatsheets/docs/cheatsheets/python/v1/compute-targets/)
+4. [Azure Machine Learning SDK for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py)
+5. [Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio](https://learn.microsoft.com/en-gb/azure/machine-learning/tutorial-first-experiment-automated-ml)
