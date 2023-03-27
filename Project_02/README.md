@@ -26,7 +26,7 @@ This step is jumped over as it could not be implemented due to insufficient auth
 #### Take a screenshot of “Registered Datasets” in ML Studio showing that Bankmarketing dataset available
 In this project the data of xxx are examined, a machine learning model was made, trainedand etc.
 
-<img src="figures/data_header.png"  width="600">
+<img src="Figures/data_header.png"  width="600">
 
 The data can be analyzed in advanced and check some metrics before starting the experiment.
 
