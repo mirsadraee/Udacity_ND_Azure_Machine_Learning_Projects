@@ -1,30 +1,45 @@
 # Operationalizing Machine Learning
+This is the second project in the framework of **Udacity Machine Learning Engineer Microsoft Azure Nanodegree Course**. The task is to trainabest model, deploying it using AutoML and Python SDK. Several steps are made to realize th eobjectives of the project which are given shortly in following section.
 
 ## Architectural Diagram
 An architectural diagram of operations for operationalizing machine learning is shown in Figure 1.
 
 <img src="figure/Flowchart.png"  width="600">
 
-Figure 1: Operationalizing Machine Learning (Image is taken from: Udacity MLEMA Nanodegree Course)
+Figure 1: Operationalizing Machine Learning (Image is taken from: Udacity Machine Learning Engineer Microsoft Azure Nanodegree Course)
 
 ## Key Steps
-The key steps are section of this project:
-1. Authentication
-2. Automated ML Experiment
-3. Deploy the best model
-4. Enable logging
-5. Swagger Documentation
-6. Consume model endpoints
-7. Create and publish a pipeline
+The key steps of this project are:
 
-## Screen Recording
-`TODO` Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
+**1. Authentication:**
+It is not possible to create a Service Principal using the lab provided, this is due to *Insufficient privileges to complete the operation*. However this step is not a blocker for next steps.
+
+**2. Automated ML Experiment:**
+In this step, an AutoML is used to train a set of models based on the provided dataset and setting inputs and outputs.
+
+**3. Deploy the best model:**
+The best model with highest accuracy has to be selected for deployment and has to be used for further queries.
+
+**4. Enable logging:**
+In this step the Application Insights has to be enabled.
+
+**5. Swagger Documentation**
+An interface to make request from deployed model and getting its response.
+
+**6. Consume model endpoints**
+The model will then be consumed using aavailable API and two set of inputs will be tested.
+
+**7. Create and publish a pipeline**
+In this step, a pipeline will be created, an endpoint will be published and automating all the steps.
+
+## Project Steps
+The steps of projects are explained in detail in following sections.
+
 ### 1. Authentication
 This step is jumped over as it could not be implemented due to insufficient authorization for creating a security principal.
 
 ### 2. Automated ML Experiment
-#### Take a screenshot of “Registered Datasets” in ML Studio showing that Bankmarketing dataset available
-In this project, a set of classification models on this `Bank Marketing` dataset are trained, and athe one with the highest accuracy is taken for deployment.
+In this project, a set of classification models on `Bank Marketing` dataset are trained, and athe one with the highest accuracy is taken for deployment.
 
 <img src="figure/data_header.png"  width="1200">
 
@@ -32,8 +47,6 @@ The data can be analyzed in advanced and check some metrics before starting the 
 
 <img src="figure/data_analysis.png"  width="1200">
 
-
-#### Take a screenshot showing that the experiment is shown as completed
 The experiment started successfully and took around 1 hour to be completed, the maximum training time is set to 1 hour so the resources would not be overloaded by model training.
 
 <img src="figure/experiment_started.png"  width="1200">
@@ -50,8 +63,7 @@ A section of trained models is given below:
 
 <img src="figure/experiment_results.png"  width="1200">
 
-#### Take a screenshot of the best model after the experiment completes
-1. The best model for deployment is the one from VotingEnsemble training which can predict the target value by 95%. 
+The best model for deployment is the one from VotingEnsemble training which can predict the target value by 95%. 
 
 <img src="figure/experiment_best_model.png"  width="1200">
 
@@ -75,9 +87,7 @@ The deployment will be finished after a short time, considering that the Azure C
 <img src="figure/deployment_model_status.png"  width="1200">
 
 ### 4. Enable logging
-The next step is to enable Application Insights.
-To do so, fist the config file of has to be downloaded.
-The content of this config file looks like following figure:
+The next step is to enable Application Insights. To do so, fist the config file of has to be downloaded. The content of this config file looks like following figure:
 
 <img src="figure/config_json.png"  width="400">
  
@@ -93,14 +103,10 @@ The content of this config file looks like following figure:
 
 The dashboard now shows the status and activities of the deployed model.
 
-
 <img src="figure/application_insights_dashboard.png"  width="1200">
 
-#### Take a screenshot showing that "Application Insights" is enabled in the Details tab of the endpoint.
-#### Take a screenshot showing logs by running the provided logs.py script
-
 ### 5. Swagger Documentation
-In this section, firstly the swagger.json has to be downloaded and then running the swagger.sh and serve.py. The results now can be observed on localhost:8000.
+In this section, firstly the `swagger.json` has to be downloaded and then running the `swagger.sh` and `serve.py`. The results now can be observed on `localhost:8000`.
 
 The swagger run can now be obsered on the localhost as following figures:
 
@@ -158,7 +164,7 @@ Then the pipeline is finished now:
 <img src="figure/pipeline_completed.png"  width="1200">
 
 
-## Standout Suggestions
+## Suggestions and Future Steps
 - Use different model setups for possible increase of model performance.
 - Test the model for more tests point.
 - Validate the performanc of the model for unseen data.
