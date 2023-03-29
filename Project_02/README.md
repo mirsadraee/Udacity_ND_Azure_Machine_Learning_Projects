@@ -18,104 +18,150 @@ The key steps are section of this project:
 7. Create and publish a pipeline
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
+`TODO` Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
 ### 1. Authentication
 This step is jumped over as it could not be implemented due to insufficient authorization for creating a security principal.
 
 ### 2. Automated ML Experiment
 #### Take a screenshot of “Registered Datasets” in ML Studio showing that Bankmarketing dataset available
-In this project the data of xxx are examined, a machine learning model was made, trainedand etc.
+In this project, a set of classification models on this `Bank Marketing` dataset are trained, and athe one with the highest accuracy is taken for deployment.
 
-<img src="Figures/data_header.png"  width="600">
+<img src="figures/data_header.png"  width="1200">
 
 The data can be analyzed in advanced and check some metrics before starting the experiment.
 
-<img src="figures/data_analysis.png"  width="600">
+<img src="figures/data_analysis.png"  width="1200">
 
 
 #### Take a screenshot showing that the experiment is shown as completed
-The experiment started successfully and took around 1 hour to be completed, the maximum training time was set to 1 hour so the resources would not be overloaded by model training.
+The experiment started successfully and took around 1 hour to be completed, the maximum training time is set to 1 hour so the resources would not be overloaded by model training.
 
-<img src="figures/experiment_started.png"  width="600">
+<img src="figures/experiment_started.png"  width="1200">
 
-The experiment was completed successfully and variety of models were trained using AutoML.
+The experiment is completed successfully and variety of models are trained using AutoML.
 
-<img src="figures/experiment_completed_status.png"  width="600">
+<img src="figures/experiment_completed_status.png"  width="1200">
 
 A short summary of the job is given below:
 
-<img src="figures/experiment_completed.png"  width="600">
+<img src="figures/experiment_completed.png"  width="1200">
 
 A section of trained models is given below:
 
-<img src="figures/experiment_results.png"  width="600">
+<img src="figures/experiment_results.png"  width="1200">
 
 #### Take a screenshot of the best model after the experiment completes
 1. The best model for deployment is the one from VotingEnsemble training which can predict the target value by 95%. 
 
-<img src="figures/experiment_best_model.png"  width="600">
+<img src="figures/experiment_best_model.png"  width="1200">
 
 The best model metrics are given in figure below:
 
-<img src="figures/experiment_best_model_metrics.png"  width="600">
+<img src="figures/experiment_best_model_metrics.png"  width="1200">
 
 A short explanation of the best model is given bwelow and showing the important of input variables with highest impact:
 
-<img src="figures/experiment_best_model_explanation.png"  width="600">
+<img src="figures/experiment_best_model_explanation.png"  width="1200">
 
-The AutoML Model Training was done successfully, so the best model is ready for deployment.
+The AutoML Model Training is completed successfully, so the best model is ready for deployment.
 
 ### 3. Deploy the best model
-1. Select the best model for deployment
+The best model for deployment is the one as VotingEnsemble and has accuracy for prediction by 95%. The deploying process can be seen following figure:
 
-2. Deploy the model and enable "Authentication"
+<img src="figures/deployment_model_running.png"  width="1200">
 
-#### Select the best model for deployment
-#### Deploy the model and enable "Authentication"
-#### Deploy the model using Azure Container Instance (ACI)
+The deployment will be finished after a short time, considering that the Azure Container Instance (ACI) is used and authentication is activated.
 
+<img src="figures/deployment_model_status.png"  width="1200">
 
 ### 4. Enable logging
-1. Please complete the following using Azure Python SDK:
-2. Ensure az is installed, as well as the Python SDK for Azure
-3. Create a new virtual environment with Python3
-4. Write and run code to enable Application Insights
-5. Use the provided code logs.py to view the logs
+The next step is to enable Application Insights.
+To do so, fist the config file of has to be downloaded.
+The content of this config file looks like following figure:
+
+<img src="figures/config_json.png"  width="400">
+ 
+ Now by running `logs.py`, the Application Insights will be enabled and it can be seen in the endpoint section of ML Studio for the selected deploced model. 
+ 
+ <img src="figures/application_insight_logs_run.png"  width="400">
+
+<img src="figures/application_insights_status_enabled.png"  width="400">
+
+ The status is shown in following figure:
+
+<img src="figures/deployment_application_insights.png"  width="1200">
+
+The dashboard now shows the status and activities of the deployed model.
+
+
+<img src="figures/application_insights_dashboard.png"  width="1200">
 
 #### Take a screenshot showing that "Application Insights" is enabled in the Details tab of the endpoint.
 #### Take a screenshot showing logs by running the provided logs.py script
 
 ### 5. Swagger Documentation
-1. Download the swagger.json file
-2. Run the swagger.sh and serve.py
-3. Interact with the swagger instance running with the documentation for the HTTP API of the model.
-4. Display the contents of the API for the model
+In this section, firstly the swagger.json has to be downloaded and then running the swagger.sh and serve.py. The results now can be observed on localhost:8000.
 
-#### Take a screenshot showing that swagger runs on localhost showing the HTTP API methods and responses for the model
+The swagger run can now be obsered on the localhost as following figures:
+
+<img src="figures/swagger_container.png"  width="1200">
+
+The deployment can be found on port 8000 of the localhost, it can be realized by downloading the `swagger.json`, starting the docker and running the `swagger.sh`. The results is shown below:
+
+<img src="figures/swagger_container_deploy_model.png"  width="1200">
+
+The get and response of the API introduced in the swagger as following: 
+
+<img src="figures/swagger_container_deploy_model_post.png"  width="1200">
 
 ### 6. Consume model endpoints
-1. Modifying both the scoring_uri and the key to match the key for your service and the URI that was generated after deployment
-2.  Execute the endpoint.py file, the output should be similar to the following: {"result": ["yes", "no"]}
+Now it is time to consume the model from the endpoint, the `scoring_uri` and the `key` has to be updated in the `endpoint.py` for the service, one can give several input data so to test the API and the model as following:
 
-#### Take a screenshot showing that theendpoint.py script runs against the API producing JSON output from the model.
+<img src="figures/endpoint_updated.png"  width="600">
+
+by running the `python endpoint.py` following response should be provided:
+{"result": ["yes", "no"]}
+
+<img src="figures/endpoint_response.png"  width="600">
 
 ### 7. Create and publish a pipeline
-1. Run through all the cells in the provided Notebook which uses the Python SDK.
-2. Upload the Jupyter Notebook aml-pipelines-with-automated-machine-learning-step.ipynb to the Azure ML studio
-3. Update all the variables that are noted to match your environment
-4. Make sure a config.json has been downloaded and is available in the current working directory
-5. Run through the cells
-6. Verify the pipeline has been created and shows in Azure ML studio, in the Pipelines section
-7. Verify that the pipeline has been scheduled to run or is running
-Task List
+- The pipeline section of Azure ML studio, showing that the pipeline has been created
 
-Again:
-1. The pipeline section of Azure ML studio, showing that the pipeline has been created
-2. The pipelines section in Azure ML Studio, showing the Pipeline Endpoint
-3. The Bankmarketing dataset with the AutoML module
-4. The “Published Pipeline overview”, showing a REST endpoint and a status of ACTIVE
-5. In Jupyter Notebook, showing that the “Use RunDetails Widget” shows the step runs
-6. In ML studio showing the scheduled run
+<img src="figures/pipeline_created.png"  width="1200">
+
+Then the pipeline will be run:
+
+<img src="figures/pipeline_running.png"  width="1200">
+
+Then the pipeline is finished now:
+ 
+<img src="figures/pipeline_finished.png"  width="1200">
+
+- The pipelines section in Azure ML Studio, showing the Pipeline Endpoint
+
+<img src="figures/pipeline_endpoint.png"  width="1200">
+
+- The Bankmarketing dataset with the AutoML module
+
+<img src="figures/pipeline_bankmarketuing_data_AutoML_module.png"  width="1200">
+
+- The “Published Pipeline overview”, showing a REST endpoint and a status of ACTIVE
+
+<img src="figures/pipeline_published.png"  width="1200">
+
+- In Jupyter Notebook, showing that the “Use RunDetails Widget” shows the step runs
+
+<img src="figures/pipeline_widget.png"  width="1200">
+
+- In ML studio showing the scheduled run
+
+<img src="figures/pipeline_completed.png"  width="1200">
+
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+- Use different model setups for possible increase of model performance.
+- Test the model for more tests point.
+- Validate the performanc of the model for unseen data.
+- Increase permitted training time and iteations for increasing the model performance.
+- Train the model based on the inputs with highest impact on the model performance.
+- Possible increase of AutoML automation.
