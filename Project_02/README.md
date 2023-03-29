@@ -3,7 +3,7 @@
 ## Architectural Diagram
 An architectural diagram of operations for operationalizing machine learning is shown in Figure 1.
 
-<img src="figures/Flowchart.png"  width="600">
+<img src="figure/Flowchart.png"  width="600">
 
 Figure 1: Operationalizing Machine Learning (Image is taken from: Udacity MLEMA Nanodegree Course)
 
@@ -26,75 +26,75 @@ This step is jumped over as it could not be implemented due to insufficient auth
 #### Take a screenshot of “Registered Datasets” in ML Studio showing that Bankmarketing dataset available
 In this project, a set of classification models on this `Bank Marketing` dataset are trained, and athe one with the highest accuracy is taken for deployment.
 
-<img src="figures/data_header.png"  width="1200">
+<img src="figure/data_header.png"  width="1200">
 
 The data can be analyzed in advanced and check some metrics before starting the experiment.
 
-<img src="figures/data_analysis.png"  width="1200">
+<img src="figure/data_analysis.png"  width="1200">
 
 
 #### Take a screenshot showing that the experiment is shown as completed
 The experiment started successfully and took around 1 hour to be completed, the maximum training time is set to 1 hour so the resources would not be overloaded by model training.
 
-<img src="figures/experiment_started.png"  width="1200">
+<img src="figure/experiment_started.png"  width="1200">
 
 The experiment is completed successfully and variety of models are trained using AutoML.
 
-<img src="figures/experiment_completed_status.png"  width="1200">
+<img src="figure/experiment_completed_status.png"  width="1200">
 
 A short summary of the job is given below:
 
-<img src="figures/experiment_completed.png"  width="1200">
+<img src="figure/experiment_completed.png"  width="1200">
 
 A section of trained models is given below:
 
-<img src="figures/experiment_results.png"  width="1200">
+<img src="figure/experiment_results.png"  width="1200">
 
 #### Take a screenshot of the best model after the experiment completes
 1. The best model for deployment is the one from VotingEnsemble training which can predict the target value by 95%. 
 
-<img src="figures/experiment_best_model.png"  width="1200">
+<img src="figure/experiment_best_model.png"  width="1200">
 
 The best model metrics are given in figure below:
 
-<img src="figures/experiment_best_model_metrics.png"  width="1200">
+<img src="figure/experiment_best_model_metrics.png"  width="1200">
 
 A short explanation of the best model is given bwelow and showing the important of input variables with highest impact:
 
-<img src="figures/experiment_best_model_explanation.png"  width="1200">
+<img src="figure/experiment_best_model_explanation.png"  width="1200">
 
 The AutoML Model Training is completed successfully, so the best model is ready for deployment.
 
 ### 3. Deploy the best model
 The best model for deployment is the one as VotingEnsemble and has accuracy for prediction by 95%. The deploying process can be seen following figure:
 
-<img src="figures/deployment_model_running.png"  width="1200">
+<img src="figure/deployment_model_running.png"  width="1200">
 
 The deployment will be finished after a short time, considering that the Azure Container Instance (ACI) is used and authentication is activated.
 
-<img src="figures/deployment_model_status.png"  width="1200">
+<img src="figure/deployment_model_status.png"  width="1200">
 
 ### 4. Enable logging
 The next step is to enable Application Insights.
 To do so, fist the config file of has to be downloaded.
 The content of this config file looks like following figure:
 
-<img src="figures/config_json.png"  width="400">
+<img src="figure/config_json.png"  width="400">
  
  Now by running `logs.py`, the Application Insights will be enabled and it can be seen in the endpoint section of ML Studio for the selected deploced model. 
  
- <img src="figures/application_insight_logs_run.png"  width="400">
+ <img src="figure/application_insight_logs_run.png"  width="400">
 
-<img src="figures/application_insights_status_enabled.png"  width="400">
+<img src="figure/application_insights_status_enabled.png"  width="400">
 
  The status is shown in following figure:
 
-<img src="figures/deployment_application_insights.png"  width="1200">
+<img src="figure/deployment_application_insights.png"  width="1200">
 
 The dashboard now shows the status and activities of the deployed model.
 
 
-<img src="figures/application_insights_dashboard.png"  width="1200">
+<img src="figure/application_insights_dashboard.png"  width="1200">
 
 #### Take a screenshot showing that "Application Insights" is enabled in the Details tab of the endpoint.
 #### Take a screenshot showing logs by running the provided logs.py script
@@ -104,58 +104,58 @@ In this section, firstly the swagger.json has to be downloaded and then running 
 
 The swagger run can now be obsered on the localhost as following figures:
 
-<img src="figures/swagger_container.png"  width="1200">
+<img src="figure/swagger_container.png"  width="1200">
 
 The deployment can be found on port 8000 of the localhost, it can be realized by downloading the `swagger.json`, starting the docker and running the `swagger.sh`. The results is shown below:
 
-<img src="figures/swagger_container_deploy_model.png"  width="1200">
+<img src="figure/swagger_container_deploy_model.png"  width="1200">
 
 The get and response of the API introduced in the swagger as following: 
 
-<img src="figures/swagger_container_deploy_model_post.png"  width="1200">
+<img src="figure/swagger_container_deploy_model_post.png"  width="1200">
 
 ### 6. Consume model endpoints
 Now it is time to consume the model from the endpoint, the `scoring_uri` and the `key` has to be updated in the `endpoint.py` for the service, one can give several input data so to test the API and the model as following:
 
-<img src="figures/endpoint_updated.png"  width="600">
+<img src="figure/endpoint_updated.png"  width="600">
 
 by running the `python endpoint.py` following response should be provided:
 {"result": ["yes", "no"]}
 
-<img src="figures/endpoint_response.png"  width="600">
+<img src="figure/endpoint_response.png"  width="600">
 
 ### 7. Create and publish a pipeline
 - The pipeline section of Azure ML studio, showing that the pipeline has been created
 
-<img src="figures/pipeline_created.png"  width="1200">
+<img src="figure/pipeline_created.png"  width="1200">
 
 Then the pipeline will be run:
 
-<img src="figures/pipeline_running.png"  width="1200">
+<img src="figure/pipeline_running.png"  width="1200">
 
 Then the pipeline is finished now:
  
-<img src="figures/pipeline_finished.png"  width="1200">
+<img src="figure/pipeline_finished.png"  width="1200">
 
 - The pipelines section in Azure ML Studio, showing the Pipeline Endpoint
 
-<img src="figures/pipeline_endpoint.png"  width="1200">
+<img src="figure/pipeline_endpoint.png"  width="1200">
 
 - The Bankmarketing dataset with the AutoML module
 
-<img src="figures/pipeline_bankmarketuing_data_AutoML_module.png"  width="1200">
+<img src="figure/pipeline_bankmarketuing_data_AutoML_module.png"  width="1200">
 
 - The “Published Pipeline overview”, showing a REST endpoint and a status of ACTIVE
 
-<img src="figures/pipeline_published.png"  width="1200">
+<img src="figure/pipeline_published.png"  width="1200">
 
 - In Jupyter Notebook, showing that the “Use RunDetails Widget” shows the step runs
 
-<img src="figures/pipeline_widget.png"  width="1200">
+<img src="figure/pipeline_widget.png"  width="1200">
 
 - In ML studio showing the scheduled run
 
-<img src="figures/pipeline_completed.png"  width="1200">
+<img src="figure/pipeline_completed.png"  width="1200">
 
 
 ## Standout Suggestions
