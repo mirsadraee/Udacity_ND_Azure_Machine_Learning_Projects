@@ -1,5 +1,10 @@
 # Operationalizing Machine Learning
-This is the second project in the framework of **Udacity Machine Learning Engineer Microsoft Azure Nanodegree Course**. The task is to trainabest model, deploying it using AutoML and Python SDK. Several steps are made to realize th eobjectives of the project which are given shortly in following section.
+This is the second project in the framework of **Udacity Machine Learning Engineer Microsoft Azure Nanodegree Course**. The task is to train a best model, deploying it using AutoML and Python SDK. Several steps are made to realize the objectives of the project which are given shortly in following section.
+
+- The first section of the project is regarding creating a machine learning model using AutoML and deploying a best model and consume it finally.
+- The second part of the project is using Python SDK for creating, training and publishing a pipeline.
+
+The dataset provided by Udacity regarding Bank Marketing is used for a classification task. The objective of classification is to predict wether a client subscribes a bank deposit term or not.
 
 ## Architectural Diagram
 An architectural diagram of operations for operationalizing machine learning is shown in Figure 1.
@@ -163,6 +168,8 @@ Then the pipeline is finished now:
 
 <img src="figure/pipeline_completed.png"  width="1200">
 
+## Screencasting
+A video is provided indicating different steps of using AutoML and python SDK for training a best model for classification of Bank Marketing Dataset.
 
 ## Suggestions and Future Steps
 - Use different model setups for possible increase of model performance.
