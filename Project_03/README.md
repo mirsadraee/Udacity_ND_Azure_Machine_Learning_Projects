@@ -104,6 +104,7 @@ A VotingEnsemble can predict the objective function at best. The accuracy of tra
 <img src="images/automl_model_training_status.png"  width="600">
 
 The result of training in the experiment can be observed as well in the script:
+
 <img src="images/automl_model_training_detail.png"  width="600">
 
 
@@ -112,6 +113,7 @@ A screenshot of the `RunDetails` widget as well as a screenshot of the best mode
 <img src="images/automl_rundetails.png"  width="600">
 
 The best model info is given in below screenshot:
+
 <img src="images/automl_best_model.png"  width="600">
 
 | Run                                                  |                                                  |
